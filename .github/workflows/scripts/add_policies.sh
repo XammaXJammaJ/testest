@@ -8,11 +8,11 @@ git config --global user.name "XammaXJammaJ"
 
 GH_TOKEN=$1
 echo "TOKEN:"
-echo "Authorization: Bearer $GH_TOKEN"
+echo "Authorization: $GH_TOKEN"
 
 echo "Showing policies"
 curl -X GET https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_NAME}/protection/required_pull_request_reviews \
-  "Authorization: Bearer $GH_TOKEN" \
+  "Authorization: $GH_TOKEN" \
   -H "Accept: application/vnd.github+json" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
 
