@@ -10,14 +10,14 @@ git config --global user.name "XammaXJammaJ"
 echo "Showing policies"
 curl -X GET https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_NAME}/protection/required_pull_request_reviews \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer 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"\
+  --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'\
   -H "X-GitHub-Api-Version: 2022-11-28" \
 
 echo "Setting policy"
 # Add policy 1: Require pull request before merging
 # ...
 curl -X PUT https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_NAME}/protection/required_pull_request_reviews \
--H "Authorization: Bearer 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" \
+--header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
 -H "Content-Type: application/json" \
 -d '{"required_pull_request_reviews":{"require_code_owner_reviews":false}}'
 
