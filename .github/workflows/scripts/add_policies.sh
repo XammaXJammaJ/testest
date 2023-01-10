@@ -12,7 +12,7 @@ echo "Authorization: $GH_TOKEN"
 
 echo "Showing policies"
 curl -X GET https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_NAME}/protection/required_pull_request_reviews \
-  -H "Authorization: $GH_TOKEN" \
+  -H "Authorization: Bearer $GH_TOKEN" \
   -H "Accept: application/vnd.github+json" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
 
