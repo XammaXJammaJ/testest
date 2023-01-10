@@ -14,7 +14,7 @@ jobs:
       - name: Add policies
         run: |
           chmod +x .github/workflows/scripts/add_policies.sh
-          bash .github/workflows/scripts/add_policies.sh hallo ${{ secrets.GITHUB_TOKEN }}
+          bash .github/workflows/scripts/add_policies.sh ${{ secrets.GITHUB_TOKEN }}
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
