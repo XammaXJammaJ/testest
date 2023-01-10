@@ -6,8 +6,8 @@ on:
       - 'release-*'
 
 jobs:
-  permissions: write-all
   add-policies:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
