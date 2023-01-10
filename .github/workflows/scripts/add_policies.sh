@@ -6,7 +6,7 @@ BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 git config --global user.email "jamelabdelhafidh@hotmail.com"
 git config --global user.name "XammaXJammaJ"
 
-GH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+GH_TOKEN=$1
 echo "TOKEN:"
 echo $GH_TOKEN
 
