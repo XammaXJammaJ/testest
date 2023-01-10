@@ -15,7 +15,7 @@ curl -X GET https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_
 
 echo "Setting policy"
 echo "TOKEN:"
-echo ${{ secrets.GITHUB_TOKEN }}
+echo $secrets.GITHUB_TOKEN
 # Add policy 1: Require pull request before merging
 # ...
 curl -X PUT https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_NAME}/protection/required_pull_request_reviews \
