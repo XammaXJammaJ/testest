@@ -6,20 +6,21 @@ BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 git config --global user.email "jamelabdelhafidh@hotmail.com"
 git config --global user.name "XammaXJammaJ"
 
+echo "TOKEN:"
+echo $GH_TOKEN
 
 echo "Showing policies"
 curl -X GET https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_NAME}/protection/required_pull_request_reviews \
-  "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  "Authorization: Bearer $GH_TOKEN" \
   -H "Accept: application/vnd.github+json" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
 
 echo "Setting policy"
-echo "TOKEN:"
-echo $secrets.GITHUB_TOKEN
+
 # Add policy 1: Require pull request before merging
 # ...
 curl -X PUT https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_NAME}/protection/required_pull_request_reviews \
--H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+-H "Authorization: Bearer $GH_TOKEN" \
 -H "Content-Type: application/json" \
 -d '{"required_pull_request_reviews":{"require_code_owner_reviews":false}}'
 
