@@ -6,10 +6,9 @@ BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 git config --global user.email "jamelabdelhafidh@hotmail.com"
 git config --global user.name "XammaXJammaJ"
 
-GH_TOKEN=$2
-echo $1
+GH_TOKEN=$1
 echo "TOKEN:"
-echo $GH_TOKEN
+echo "Authorization: Bearer $GH_TOKEN"
 
 echo "Showing policies"
 curl -X GET https://api.github.com/repos/XammaXJammaJ/testest/branches/${BRANCH_NAME}/protection/required_pull_request_reviews \
